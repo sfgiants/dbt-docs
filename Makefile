@@ -11,7 +11,7 @@ test:
 	npm test
 
 dist: clean
-	NODE_OPTIONS=--openssl-legacy-provider DBT_DOCS_ENV=production webpack
+	DBT_DOCS_ENV=production npx webpack
 	rm -rf dist/fonts dist/main.js dist/main.js.map
 
 submodule:
