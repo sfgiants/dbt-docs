@@ -354,6 +354,18 @@ angular
             var color_config = _.get(el, ['data', 'docs', 'node_color'])
             if (color_config && colorValidation.isValidColor(color_config)) {
                 el.data['node_color'] = color_config;
+            } else {
+                var materialization = _.get(el, ['data', 'config', 'materialized'])
+                var colorMap = {
+                    'view': '#0094b3',
+                    'table': '#4f2d7f',
+                    'incremental': '#90004f',
+                    'ephemeral': '#adafaf'
+                }
+                var color = colorMap[materialization]
+                if (color) {
+                    el.data['node_color'] = color
+                }
             }
 
         });
